@@ -220,13 +220,7 @@
     <loc>/reference/profile_fmsy.html</loc>
   </url>
   <url>
-    <loc>/reference/rename_ss3_files.html</loc>
-  </url>
-  <url>
     <loc>/reference/replace_x.html</loc>
-  </url>
-  <url>
-    <loc>/reference/run_ss3model.html</loc>
   </url>
   <url>
     <loc>/reference/run_ss3sim.html</loc>
@@ -268,9 +262,6 @@
     <loc>/reference/sample_wtatage.html</loc>
   </url>
   <url>
-    <loc>/reference/sanitize_admb_options.html</loc>
-  </url>
-  <url>
     <loc>/reference/scalar2list.html</loc>
   </url>
   <url>
@@ -308,9 +299,6 @@
   </url>
   <url>
     <loc>/reference/standardize_sampling_args.html</loc>
-  </url>
-  <url>
-    <loc>/reference/substr_r.html</loc>
   </url>
   <url>
     <loc>/reference/ts_dat.html</loc>
