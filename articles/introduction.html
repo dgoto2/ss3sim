@@ -13,7 +13,7 @@
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
 <script src="../pkgdown.js"></script><link href="../extra.css" rel="stylesheet">
 <meta property="og:title" content="Introduction to ss3sim">
-<meta property="og:description" content="Start here to learn how to use ss3sim. Basic information is provided on key functions, e.g., [run_ss3sim()], and available outputs.
+<meta property="og:description" content="Start here to learn how to use ss3sim. Basic information is provided on key functions, e.g., `run_ss3sim()`, and available outputs.
 ">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -88,7 +88,7 @@
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Introduction to ss3sim</h1>
             
-            <h4 data-toc-skip class="date">2022-10-29</h4>
+            <h4 data-toc-skip class="date">2023-02-24</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/ss3sim/ss3sim/blob/HEAD/vignettes/introduction.Rmd" class="external-link"><code>vignettes/introduction.Rmd</code></a></small>
       <div class="hidden name"><code>introduction.Rmd</code></div>
@@ -110,9 +110,9 @@ recommend navigating to the <a href="https://blog.rstudio.org/" title="RStudio B
 <ul>
 <li>a series of low-level functions that facilitate manipulating Stock
 Synthesis configuration files, running Stock Synthesis models, and
-combining the output</li>
+combining the output;</li>
 <li>a few high-level wrapper functions that control simulation
-experiments, e.g., [run_ss3sim()]</li>
+experiments, e.g., <code><a href="../reference/run_ss3sim.html">run_ss3sim()</a></code>; and</li>
 <li>documentation for the user, e.g., <code><a href="../reference/change_f.html">?change_f</a></code>, vignettes,
 <a href="https://github.com/ss3sim/ss3sim/issues" title="ss3sim issue tracker on GitHub" class="external-link">issue tracker</a>, and a <a href="https://github.com/ss3sim/ss3sim/discussions" title="ss3sim Discussions on GitHub" class="external-link">Discussion board</a> for users and
 developers to interact.</li>
@@ -125,7 +125,7 @@ contribute.</p>
 <h3 id="stock-synthesis">Stock Synthesis<a class="anchor" aria-label="anchor" href="#stock-synthesis"></a>
 </h3>
 <p>It seems imperative to first describe <a href="https://github.com/nmfs-stock-synthesis/stock-synthesis" title="Stock Synthesis (SS3) github repository" class="external-link">Stock Synthesis</a>
-because without Stock Synthesis there would not be ss3sim. Stock
+because without Stock Synthesis there would not be {ss3sim}. Stock
 Synthesis is an integrated statistical catch-at-age model written in <a href="https://www.admb-project.org/community/" title="AD model builder project" class="external-link">ADMB</a>. The software is widely used
 across the globe and has been around for 40+ years.</p>
 <p>The inspiration for {ss3sim} came from Hui-Hua Lee’s hooilator
@@ -140,11 +140,11 @@ in <code>data_boot_**N.ss</code>. See the <a href="https://nmfs-stock-synthesis.
 files in the Stock Synthesis manual</a> for more detailed information.
 {ss3sim} finishes the creation of simulation-specific directories
 similar to the directory structure that was created by hooliator.
-Additionally, {ss3sim} added functionality to sample from the expected
-values such that simulations were not forced to rely on bootstrapped
-values provided in <code>data_boot_**N.ss</code>. With a plethora of
-simulation output stored in structured folders, there was an imminent
-need for functions to visualize the results. <a href="https://ggplot2.tidyverse.org/" title="ggplot2 documentation" class="external-link">ggplot2</a> was gaining traction at the
+{ss3sim} adds functionality to sample from the expected values such that
+simulations need not rely on bootstrapped values provided in
+<code>data_boot_**N.ss</code>. With a plethora of simulation output
+stored in structured folders, there was an imminent need for functions
+to visualize the results. <a href="https://ggplot2.tidyverse.org/" title="ggplot2 documentation" class="external-link">{ggplot2}</a> was gaining traction at the
 time and shaped how we thought about things, including our <a href="#overview">mission statement</a> and <a href="beautiful-output">example output</a>.</p>
 <p>{ss3sim} is just a minor part of the suite of functionality available
 for Stock Synthesis. See the <a href="https://github.com/nmfs-stock-synthesis/stock-synthesis" title="Stock Synthesis (SS3) github repository" class="external-link">Stock Synthesis
@@ -154,25 +154,27 @@ website</a> for a list of additional software.</p>
 <h3 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h3>
 <div class="section level4">
-<h4 id="installing-ss3sim">Installing ss3sim<a class="anchor" aria-label="anchor" href="#installing-ss3sim"></a>
+<h4 id="installing-ss3sim">Installing {ss3sim}<a class="anchor" aria-label="anchor" href="#installing-ss3sim"></a>
 </h4>
 <p>{ss3sim} is available on <a href="https://cran.r-project.org/package=ss3sim" title="ss3sim on CRAN" class="external-link">CRAN</a> and <a href="https://github.com/ss3sim/ss3sim/releases" title="ss3sim on GitHub" class="external-link">GitHub</a> and can be run on OS X, Windows, or
-Linux. The GitHub branch “main” contains the newest features, which may
-not available on CRAN.</p>
+Linux. The GitHub branch “main” contains the newest features, which are
+more than likely not available on CRAN. We recommend using the GitHub
+version because development of {ss3sim} is very fluid and new features
+are added almost monthly, whereas CRAN submissions tend to be
+bi-annual.</p>
 <p>Run the following code to install {ss3sim} and load it into your
 workspace. You will not need to install {ss3sim} every time but it is a
 good idea to ensure it is up to date. If you are installing from GitHub,
-you may need to install {remotes},
-<code>utils::install.packges("remotes")</code>, before installing
-{ss3sim} if you do not already have {devtools} installed. If your
-current version of {ss3sim} is up to date, R will let you know and
-prompt you if you want to override the current installation.</p>
+you may need to install {remotes} or {pak},
+<code>utils::install.packges("pak")</code>, before installing {ss3sim}
+if you do not already have {devtools} installed. If your current version
+of {ss3sim} is up to date, R will let you know and prompt you if you
+want to override the current installation.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># CRAN version</span></span>
-<span><span class="fu">utils</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"ss3sim"</span><span class="op">)</span></span>
-<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span></span>
-<span>  repo <span class="op">=</span> <span class="st">"ss3sim/ss3sim"</span>,</span>
-<span>  dependencies <span class="op">=</span> <span class="cn">TRUE</span>, upgrade <span class="op">=</span> <span class="cn">FALSE</span>, build_vignettes <span class="op">=</span> <span class="cn">TRUE</span></span>
+<code class="sourceCode R"><span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="http://pak.r-lib.org/reference/pkg_install.html" class="external-link">pkg_install</a></span><span class="op">(</span></span>
+<span>  pkg <span class="op">=</span> <span class="st">"ss3sim/ss3sim"</span>,</span>
+<span>  <span class="co"># pkg = "ss3sim" # CRAN version</span></span>
+<span>  dependencies <span class="op">=</span> <span class="cn">TRUE</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Load the package</span></span>
@@ -185,56 +187,18 @@ documentation within R. You can also view the <a href="https://ss3sim.github.io/
 <span><span class="fu">utils</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/utils/browseVignettes.html" class="external-link">browseVignettes</a></span><span class="op">(</span><span class="st">"ss3sim"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level4">
-<h4 id="installing-stock-synthesis">Installing Stock Synthesis<a class="anchor" aria-label="anchor" href="#installing-stock-synthesis"></a>
+<h4 id="path">Installing Stock Synthesis<a class="anchor" aria-label="anchor" href="#path"></a>
 </h4>
 <p>{ss3sim} relies the Stock Synthesis executable being available to the
-operating system regardless of the directory. Thus, <code>ss</code> or
-<code>ss.exe</code> must <a href="#path">be in your path</a>, which is a
-list of directories that your operating system has access to. Your
-operating system will search directories listed in your path when
-searching for programs. Having <a href="#path">Stock Synthesis in your
-path</a> allows users to use just the name of the executable and not the
-full file path in a shell and run the executable in a directory without
-copying it to the directory. This functionality of not copying the
-executable works even when <a href="#parallel">running Stock Synthesis
-in parallel</a>. This approach saves on storage space because the Stock
-Synthesis binary is about 6 MB. It also facilitates manually running
-models during development and testing. For example, you might be trying
-to create input files for a new simulation, where the simulation is
-based on a life history that you are interested in. Having Stock
-Synthesis in your path allows you to open a shell prompt in the
-directory with your Stock Synthesis input files and run the Stock
-Synthesis executable by typing <code>ss</code>. Debugging can be
-facilitated by</p>
-<ul>
-<li>output that is printed to the console,</li>
-<li>echoinput.sso, and</li>
-<li>Report.sso.</li>
-</ul>
-<p>{ss3sim} was originally based on Stock Synthesis 3.24O <span class="citation">(Anderson et al. 2014)</span>. At first, {ss3sim} did
-not keep up to date with newer versions of Stock Synthesis. In 2019,
-{ss3sim} was updated to use Stock Synthesis 3.30. <strong>Users can
-count on future versions of {ss3sim} being up to date with the newest
-version of Stock Synthesis.</strong> Stock Synthesis will end
-development with major-version three, hence the name ss3sim. But, minor
-versions will continue to be updated for quite some time.</p>
-<div class="section level5">
-<h5 id="executables">Executables<a class="anchor" aria-label="anchor" href="#executables"></a>
-</h5>
-<p>Compiled Stock Synthesis executables are available for multiple
-operating systems at the following locations:</p>
-<ul>
-<li>available <a href="https://github.com/ss3sim/ss3sim/tree/main/inst/bin" title="Stock Synthesis executables on GitHub in ss3sim" class="external-link">on
-github</a>,</li>
-<li>available <a href="https://github.com/nmfs-stock-synthesis/stock-synthesis/actions" title="Stock Synthesis GitHub actions" class="external-link">within GitHub actions in the
-Stock Synthesis GitHub repository</a>, or</li>
-<li>are downloaded automatically when you use the GitHub version of
-ss3sim.</li>
-</ul>
-</div>
-<div class="section level5">
-<h5 id="path">Putting Stock Synthesis in your path<a class="anchor" aria-label="anchor" href="#path"></a>
-</h5>
+operating system. Thus, the executable must be in your path, which is a
+list of directories that your operating system has access to and
+searches through when a program is called. Having Stock Synthesis in
+your path allows {ss3sim} to use the name of the single, saved
+executable instead of requiring the full path or copying the executable
+to every local directory before calling it, which saves on space because
+the Stock Synthesis binary is about 6 MB. This functionality of not
+copying the executable works even when <a href="#parallel">running Stock
+Synthesis in parallel</a>.</p>
 <p>{ss3sim} will first look to see if the executable is available in
 your R library using
 <code>system.file("bin", package = "ss3sim")</code>. The previous will
@@ -242,46 +206,66 @@ only lead to a viable file path if you are using the GitHub version of
 {ss3sim} because the distribution of executables is not allowed on CRAN.
 If the location is not returned from <code>system.file</code>, R will
 look for the executable in your path. This hierarchy is important for
-understanding which version of Stock Synthesis is being used.</p>
-<p>If you are using the CRAN version of {ss3sim}, reference the <a href="https://nmfs-stock-synthesis.github.io/ss-documentation/Getting_Started_SS.html" title="Stock Synthesis Getting Started documentation" class="external-link">Getting Started
-with Stock Synthesis documentation</a> for instructions on how to put
-Stock Synthesis in your path.</p>
-</div>
+understanding which version of Stock Synthesis is being used because you
+might already have a version of Stock Synthesis in your path.</p>
+<p>{ss3sim} was originally based on Stock Synthesis 3.24O <span class="citation">(Anderson et al. 2014)</span> and did not immediately
+update to use Stock Synthesis 3.30. In 2019, {ss3sim} was updated to use
+Stock Synthesis 3.30, and <strong>users can count on future versions of
+{ss3sim} being up to date with the newest version of Stock
+Synthesis.</strong> Stock Synthesis will end development with
+major-version three but minor versions will continue to be updated for
+quite some time.</p>
+<p>If you are using the CRAN version of {ss3sim}, reference <a href="https://nmfs-stock-synthesis.github.io/ss-documentation/Getting_Started_SS.html" title="Stock Synthesis Getting Started documentation" class="external-link">Getting Started
+with Stock Synthesis</a> for instructions on how to put Stock Synthesis
+in your path. Or, you can mimic the directory structure of the GitHub
+version of {ss3sim} and place the executable in the appropriate folder
+below</p>
+<pre><code>├──library
+|  └──ss3sim
+|  |  ├──bin
+|  |  |  ├──Linux64
+|  |  |  ├──MacOS
+|  |  |  └──Windows64</code></pre>
+<p>But, the executable will need to be updated every time you reinstall
+{ss3sim}.</p>
+<p>Compiled Stock Synthesis executables are available for multiple
+operating systems <a href="https://github.com/ss3sim/ss3sim/tree/main/inst/bin" title="Stock Synthesis executables on GitHub in ss3sim" class="external-link">on GitHub</a> or
+in <a href="https://github.com/nmfs-stock-synthesis/stock-synthesis/actions" title="Stock Synthesis GitHub actions" class="external-link">GitHub actions in the Stock
+Synthesis repository</a>.</p>
 </div>
 <div class="section level4">
 <h4 id="installing-dependent-r-packages">Installing dependent R packages<a class="anchor" aria-label="anchor" href="#installing-dependent-r-packages"></a>
 </h4>
-<p>Below we highlight a few packages that are essential for running
-{ss3sim}.</p>
+<p>Installing {ss3sim} will install all of the necessary dependent
+packages without users needing to do anything extra. But, for
+completeness and as an acknowledgement, below we highlight a few
+packages that are essential for running {ss3sim}.</p>
 <div class="section level5">
-<h5 id="r4ss">r4ss<a class="anchor" aria-label="anchor" href="#r4ss"></a>
+<h5 id="r4ss">{r4ss}<a class="anchor" aria-label="anchor" href="#r4ss"></a>
 </h5>
 <p>If you are using the GitHub version of {ss3sim}, R will install the
 <a href="https://github.com/r4ss/r4ss" title="r4ss on GitHub" class="external-link">GitHub
-version of r4ss</a>. If you are using the CRAN version of {ss3sim}, R
-will install the <a href="https://cran.r-project.org/package=r4ss" title="r4ss on CRAN" class="external-link">CRAN version of r4ss</a>. Both methods will check
-to make sure that you have the most recent version of r4ss in your R
-library available given which mirror you are using. Feel free to install
-r4ss directly via</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span></span>
-<span>  <span class="st">"r4ss/r4ss"</span>,</span>
-<span>  dependencies <span class="op">=</span> <span class="cn">TRUE</span>, upgrade <span class="op">=</span> <span class="cn">FALSE</span>, build_vignettes <span class="op">=</span> <span class="cn">TRUE</span></span>
-<span><span class="op">)</span></span></code></pre></div>
-<p>But, make sure you do it before loading ss3sim. If you forget, you
+version of {r4ss}</a>. If you are using the CRAN version of {ss3sim}, R
+will install the <a href="https://cran.r-project.org/package=r4ss" title="r4ss on CRAN" class="external-link">CRAN version of {r4ss}</a>. Both methods will check
+to make sure that you have the appropriate version of {r4ss} in your R
+library given the mirror you are using. Feel free to install {r4ss}
+directly via</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="http://pak.r-lib.org/reference/pkg_install.html" class="external-link">pkg_install</a></span><span class="op">(</span><span class="st">"r4ss/r4ss"</span>, dependencies <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+<p>But, make sure you do it before loading {ss3sim}. If you forget, you
 can use <code>devtools::unload(package = "ss3sim")</code> and then
-reinstall r4ss.</p>
+reinstall {r4ss}.</p>
 </div>
 <div class="section level5">
-<h5 id="ggplot2">ggplot2<a class="anchor" aria-label="anchor" href="#ggplot2"></a>
+<h5 id="ggplot2">{ggplot2}<a class="anchor" aria-label="anchor" href="#ggplot2"></a>
 </h5>
-<p><a href="https://ggplot2.tidyverse.org/" title="ggplot2 documentation" class="external-link">ggplot2</a> uses the <a href="https://www.amazon.com/Grammar-Graphics-Statistics-Computing/dp/0387245448/ref=as_li_ss_tl" title="Grammar of Graphics on Amazon" class="external-link">Grammar of Graphics</a> to
+<p><a href="https://ggplot2.tidyverse.org/" title="ggplot2 documentation" class="external-link">{ggplot2}</a> uses the <a href="https://www.amazon.com/Grammar-Graphics-Statistics-Computing/dp/0387245448/ref=as_li_ss_tl" title="Grammar of Graphics on Amazon" class="external-link">Grammar of Graphics</a> to
 decoratively create images that represent things in a tidy way. We do
-not force users to use ggplot2. All output is available as csv files and
-can be visualized using base R if you prefer. The easiest way to get
-ggplot2 is to install the whole tidyverse suite</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">utils</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"tidyverse"</span><span class="op">)</span></span></code></pre></div>
+not force users to use {ggplot2}. All output is available in *.csv files
+and can be visualized using base R if you prefer. The easiest way to get
+{ggplot2} is to install the whole tidyverse suite.</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="http://pak.r-lib.org/reference/pkg_install.html" class="external-link">pkg_install</a></span><span class="op">(</span><span class="st">"tidyverse"</span><span class="op">)</span></span></code></pre></div>
 </div>
 </div>
 </div>
@@ -301,7 +285,7 @@ is, you do not have to have a column for every argument of all functions
 called by <code><a href="../reference/ss3sim_base.html">ss3sim_base()</a></code>. To get a feel for the columns
 needed in the <code>simdf</code> data frame run the following code,
 where the output can be saved and used to build <code>simdf</code>.</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">simdf</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/setup_scenarios_defaults.html">setup_scenarios_defaults</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p>Column entries of <code>simdf</code> need to be quoted if they are to
 be evaluated later, e.g., <code>"seq(1,10,by=2)"</code> and
@@ -427,7 +411,7 @@ or length-composition data are mandatory for a scenario.</p>
 estimation method (EM). The life history for these available files is
 based on a cod-like fish. You can peruse the files if you have {ss3sim}
 installed here</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/models"</span>, package <span class="op">=</span> <span class="st">"ss3sim"</span><span class="op">)</span></span></code></pre></div>
 <p>These model files can be used as is, modified, or replaced. For more
 details on how to modify or replace the default models, see the
@@ -488,7 +472,7 @@ provided by the survey and</li>
 </h3>
 <p>First we will create <code>df</code>, a data frame for
 <code>run_ss3sim(simdf = df)</code>.</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Use the boiler-plate data frame available in {ss3sim} for 2 scenarios</span></span>
 <span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/setup_scenarios_defaults.html">setup_scenarios_defaults</a></span><span class="op">(</span>nscenarios <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
 <span><span class="co"># Turn off bias adjustment and use default settings in cod EM model</span></span>
@@ -500,7 +484,7 @@ provided by the survey and</li>
 a constant percentage of <span class="math inline">\(F\)</span> at
 maximum sustainable yield, <span class="math inline">\(F_\mathrm{MSY}\)</span>, from when the fishery
 starts in year 26 until the end of the simulation in year 100.</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Display the default fishing mortality settings</span></span>
 <span><span class="va">df</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">grep</a></span><span class="op">(</span><span class="st">"^cf\\."</span>, <span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span><span class="op">)</span><span class="op">]</span></span>
 <span><span class="co">#&gt;   cf.years.1      cf.fvals.1</span></span>
@@ -516,7 +500,7 @@ functions. The sampling theory is described in the <a href="#comps">age-
 and length-composition sampling section</a>.</p>
 <p>The default <code>simdf</code> contains sampling protocols for
 composition data.</p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Display the default composition-data settings</span></span>
 <span><span class="co"># sa is for ages and sl is for lengths</span></span>
 <span><span class="va">df</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">grep</a></span><span class="op">(</span><span class="st">"^s[al]\\."</span>, <span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span><span class="op">)</span><span class="op">]</span></span>
@@ -536,7 +520,7 @@ survey index of abundance, we will manipulate <code>sds_obs</code> of
 standard error of the natural log of yearly index values, as defined in
 Stock Synthesis. In the first scenario <code>sds_obs = 0.1</code>. In
 the second scenario <code>sds_obs = 0.4</code>.</p>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Create a biennial survey starting in year 76 and ending in the terminal year</span></span>
 <span><span class="va">df</span><span class="op">[</span>, <span class="st">"si.years.2"</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"seq(76, 100, by = 2)"</span></span>
 <span><span class="co"># Set sd of observation error for each scenario</span></span>
@@ -551,15 +535,17 @@ a parameter on and off in the EM, where negative phases tells Stock
 Synthesis to not estimate the parameter. The second scenario will
 estimate <span class="math inline">\(M\)</span> in phase
 <code>3</code>.</p>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">rbind</a></span><span class="op">(</span><span class="va">df</span>, <span class="va">df</span><span class="op">)</span></span>
 <span><span class="va">df</span><span class="op">[</span>, <span class="st">"ce.par_name"</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"NatM_uniform_Fem_GP_1"</span></span>
 <span><span class="va">df</span><span class="op">[</span>, <span class="st">"ce.par_int"</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="cn">NA</span></span>
 <span><span class="co"># Set the phase for estimating natural mortality</span></span>
 <span><span class="va">df</span><span class="op">[</span>, <span class="st">"ce.par_phase"</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>, <span class="fl">3</span><span class="op">)</span>, each <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
 <span><span class="co"># Name the scenarios</span></span>
-<span><span class="va">df</span><span class="op">[</span>, <span class="st">"scenarios"</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"D0-E0-F0-cod"</span>, <span class="st">"D1-E0-F0-cod"</span>,</span>
-<span>  <span class="st">"D0-E1-F0-cod"</span>, <span class="st">"D1-E1-F0-cod"</span><span class="op">)</span></span></code></pre></div>
+<span><span class="va">df</span><span class="op">[</span>, <span class="st">"scenarios"</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
+<span>  <span class="st">"D0-E0-F0-cod"</span>, <span class="st">"D1-E0-F0-cod"</span>,</span>
+<span>  <span class="st">"D0-E1-F0-cod"</span>, <span class="st">"D1-E1-F0-cod"</span></span>
+<span><span class="op">)</span></span></code></pre></div>
 </div>
 </div>
 <div class="section level3">
@@ -571,18 +557,21 @@ stabilize the results using <code><a href="../reference/plot_cummean.html">plot_
 mean relative error on the y as additional iterations. The goal is to
 run plenty of iterations, such that additional iterations no longer
 appreciably flatten the curve towards a relative error of zero.</p>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">iterations</span> <span class="op">&lt;-</span> <span class="fl">1</span><span class="op">:</span><span class="fl">5</span></span>
 <span><span class="va">scname</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/run_ss3sim.html">run_ss3sim</a></span><span class="op">(</span>iterations <span class="op">=</span> <span class="va">iterations</span>, simdf <span class="op">=</span> <span class="va">df</span><span class="op">)</span></span></code></pre></div>
 <p>A quick test that can be helpful is visualizing the patterns of
 spawning stock biomass from the OM and the EM using r4ss.</p>
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">r_om</span> <span class="op">&lt;-</span> <span class="fu">r4ss</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/r4ss/man/SS_output.html" class="external-link">SS_output</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">scname</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, <span class="st">"1"</span>, <span class="st">"om"</span><span class="op">)</span>,</span>
-<span>  verbose <span class="op">=</span> <span class="cn">FALSE</span>, printstats <span class="op">=</span> <span class="cn">FALSE</span>, covar <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span>  verbose <span class="op">=</span> <span class="cn">FALSE</span>, printstats <span class="op">=</span> <span class="cn">FALSE</span>, covar <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span><span class="op">)</span></span>
 <span><span class="va">r_em</span> <span class="op">&lt;-</span> <span class="fu">r4ss</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/r4ss/man/SS_output.html" class="external-link">SS_output</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">scname</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, <span class="st">"1"</span>, <span class="st">"em"</span><span class="op">)</span>,</span>
-<span>  verbose <span class="op">=</span> <span class="cn">FALSE</span>, printstats <span class="op">=</span> <span class="cn">FALSE</span>, covar <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span>  verbose <span class="op">=</span> <span class="cn">FALSE</span>, printstats <span class="op">=</span> <span class="cn">FALSE</span>, covar <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span><span class="op">)</span></span>
 <span><span class="fu">r4ss</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/r4ss/man/SSplotComparisons.html" class="external-link">SSplotComparisons</a></span><span class="op">(</span><span class="fu">r4ss</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/r4ss/man/SSsummarize.html" class="external-link">SSsummarize</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">r_om</span>, <span class="va">r_em</span><span class="op">)</span><span class="op">)</span>,</span>
-<span>  legendlabels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"OM"</span>, <span class="st">"EM"</span><span class="op">)</span>, subplots <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></code></pre></div>
+<span>  legendlabels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"OM"</span>, <span class="st">"EM"</span><span class="op">)</span>, subplots <span class="op">=</span> <span class="fl">1</span></span>
+<span><span class="op">)</span></span></code></pre></div>
 <p>Each iteration is unique because of process error included through
 normally-distributed recruitment deviations. Thus, if you were to plot
 the OMs from iteration one and two using
@@ -625,7 +614,7 @@ respectively. To minimize observation error on the survey index, we will
 create a standard deviation on the survey observation error of 0.001.
 Finally, we will fix <span class="math inline">\(M\)</span> at the true
 value and estimate it in phase 3 as we did before.</p>
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/setup_scenarios_defaults.html">setup_scenarios_defaults</a></span><span class="op">(</span>nscenarios <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
 <span><span class="va">df</span><span class="op">[</span>, <span class="st">"user_recdevs"</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"matrix(0, nrow = 200, ncol = 20)"</span></span>
 <span><span class="va">df</span><span class="op">[</span>, <span class="st">"co.par_name"</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"SR_sigmaR"</span></span>
@@ -644,7 +633,7 @@ value and estimate it in phase 3 as we did before.</p>
 <div class="section level4">
 <h4 id="run-self-test">Run self-test<a class="anchor" aria-label="anchor" href="#run-self-test"></a>
 </h4>
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">scname_det</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/run_ss3sim.html">run_ss3sim</a></span><span class="op">(</span>iterations <span class="op">=</span> <span class="va">iterations</span>, simdf <span class="op">=</span> <span class="va">df</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level4">
@@ -681,7 +670,7 @@ attempting to standardize names.</p>
 with individual columns for each OM and EM parameter along with some
 summary information for each scenario. In May of 2020 we changed to
 providing results using a tidier long format.</p>
-<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/get_results_all.html">get_results_all</a></span><span class="op">(</span></span>
 <span>  overwrite_files <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>  user_scenarios <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">scname</span>, <span class="va">scname_det</span><span class="op">)</span></span>
@@ -692,7 +681,7 @@ providing results using a tidier long format.</p>
 <p>If you would like to follow along with the rest of the vignette
 without running the simulations detailed above, you can load a saved
 version of the output.</p>
-<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"scalar_dat"</span>, package <span class="op">=</span> <span class="st">"ss3sim"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"ts_dat"</span>, package <span class="op">=</span> <span class="st">"ss3sim"</span><span class="op">)</span></span></code></pre></div>
 </div>
@@ -702,11 +691,11 @@ version of the output.</p>
 <div class="section level4">
 <h4 id="calculate-the-relative-error-re">Calculate the relative error (RE)<a class="anchor" aria-label="anchor" href="#calculate-the-relative-error-re"></a>
 </h4>
-<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">scalar_dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/calculate_re.html">calculate_re</a></span><span class="op">(</span><span class="va">scalar_dat</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">scalar_dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/calculate_re.html">calculate_re</a></span><span class="op">(</span><span class="va">scalar_dat</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Warning in (function (..., deparse.level = 1) : number of columns of result is</span></span>
 <span><span class="co">#&gt; not a multiple of vector length (arg 1)</span></span>
-<span><span class="va">ts_dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/calculate_re.html">calculate_re</a></span><span class="op">(</span><span class="va">ts_dat</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="va">ts_dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/calculate_re.html">calculate_re</a></span><span class="op">(</span><span class="va">ts_dat</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Warning in (function (..., deparse.level = 1) : number of columns of result is</span></span>
 <span><span class="co">#&gt; not a multiple of vector length (arg 1)</span></span></code></pre></div>
 </div>
@@ -715,44 +704,55 @@ version of the output.</p>
 </h4>
 <p>The gradient information is in the scalar file. Merging the scalar
 and the time series can help add details to figures.</p>
-<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">ts_dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/merge.html" class="external-link">merge</a></span><span class="op">(</span></span>
-<span>  x <span class="op">=</span> <span class="va">ts_dat</span>,</span>
-<span>  y <span class="op">=</span> <span class="va">scalar_dat</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"scenario"</span>, <span class="st">"iteration"</span>, <span class="st">"max_grad"</span><span class="op">)</span><span class="op">]</span></span>
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">scalar_dat</span><span class="op">[</span>, <span class="st">"D"</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">gsub</a></span><span class="op">(</span></span>
+<span>  pattern <span class="op">=</span> <span class="st">"D([0-9]+)-.+"</span>,</span>
+<span>  replacement <span class="op">=</span> <span class="st">"D\\1"</span>,</span>
+<span>  <span class="va">scalar_dat</span><span class="op">[</span>, <span class="st">"scenario"</span><span class="op">]</span></span>
+<span><span class="op">)</span></span>
+<span><span class="va">scalar_dat</span><span class="op">[</span>, <span class="st">"E"</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html" class="external-link">ifelse</a></span><span class="op">(</span></span>
+<span>  test <span class="op">=</span> <span class="va">scalar_dat</span><span class="op">$</span><span class="va">NatM_uniform_Fem_GP_1_em</span> <span class="op">==</span> <span class="fl">0.2</span>,</span>
+<span>  <span class="st">"fix M"</span>,</span>
+<span>  <span class="st">"estimate M"</span></span>
+<span><span class="op">)</span></span>
+<span><span class="va">ts_dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/merge.html" class="external-link">merge</a></span><span class="op">(</span></span>
+<span>  x <span class="op">=</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">ts_dat</span>, <span class="op">-</span><span class="va">E</span><span class="op">)</span>,</span>
+<span>  y <span class="op">=</span> <span class="va">scalar_dat</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"scenario"</span>, <span class="st">"iteration"</span>, <span class="st">"max_grad"</span>, <span class="st">"D"</span>, <span class="st">"E"</span><span class="op">)</span><span class="op">]</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level4">
 <h4 id="separate-the-deterministic-from-the-stochastic-runs">Separate the deterministic from the stochastic runs<a class="anchor" aria-label="anchor" href="#separate-the-deterministic-from-the-stochastic-runs"></a>
 </h4>
-<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">scalar_dat_det</span> <span class="op">&lt;-</span> <span class="va">scalar_dat</span><span class="op">[</span><span class="va">scalar_dat</span><span class="op">$</span><span class="va">E</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"E100"</span>, <span class="st">"E101"</span><span class="op">)</span>, <span class="op">]</span></span>
-<span><span class="va">scalar_dat_sto</span> <span class="op">&lt;-</span> <span class="va">scalar_dat</span><span class="op">[</span><span class="va">scalar_dat</span><span class="op">$</span><span class="va">E</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"E0"</span>, <span class="st">"E1"</span><span class="op">)</span>, <span class="op">]</span></span>
-<span><span class="va">ts_dat_det</span> <span class="op">&lt;-</span> <span class="va">ts_dat</span><span class="op">[</span><span class="va">ts_dat</span><span class="op">$</span><span class="va">E</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"E100"</span>, <span class="st">"E101"</span><span class="op">)</span>, <span class="op">]</span></span>
-<span><span class="va">ts_dat_sto</span> <span class="op">&lt;-</span> <span class="va">ts_dat</span><span class="op">[</span><span class="va">ts_dat</span><span class="op">$</span><span class="va">E</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"E0"</span>, <span class="st">"E1"</span><span class="op">)</span>, <span class="op">]</span></span>
-<span></span>
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">ts_dat_sto</span> <span class="op">&lt;-</span> <span class="va">ts_dat</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">grepl</a></span><span class="op">(</span><span class="st">"E[0-1]-"</span>, <span class="va">ts_dat</span><span class="op">[</span>, <span class="st">"scenario"</span><span class="op">]</span><span class="op">)</span>, <span class="op">]</span></span>
 <span><span class="va">scalar_dat_long</span> <span class="op">&lt;-</span> <span class="va">scalar_dat</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="va">scalar_dat_long</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">gsub</a></span><span class="op">(</span></span>
 <span>  pattern <span class="op">=</span> <span class="st">"(.+)_re"</span>,</span>
 <span>  replacement <span class="op">=</span> <span class="st">"RE _\\1"</span>,</span>
 <span>  x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="va">scalar_dat_long</span><span class="op">)</span></span>
 <span><span class="op">)</span></span>
-<span><span class="va">scalar_dat_long</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/reshape.html" class="external-link">reshape</a></span><span class="op">(</span><span class="va">scalar_dat_long</span>, sep <span class="op">=</span> <span class="st">" _"</span>,</span>
+<span><span class="va">scalar_dat_long</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/reshape.html" class="external-link">reshape</a></span><span class="op">(</span><span class="va">scalar_dat_long</span>,</span>
+<span>  sep <span class="op">=</span> <span class="st">" _"</span>,</span>
 <span>  direction <span class="op">=</span> <span class="st">"long"</span>,</span>
 <span>  varying <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">grep</a></span><span class="op">(</span><span class="st">" _"</span>, <span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="va">scalar_dat_long</span><span class="op">)</span><span class="op">)</span>,</span>
 <span>  idvar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"scenario"</span>, <span class="st">"iteration"</span><span class="op">)</span>,</span>
-<span>  timevar <span class="op">=</span> <span class="st">"parameter"</span><span class="op">)</span></span></code></pre></div>
+<span>  timevar <span class="op">=</span> <span class="st">"parameter"</span></span>
+<span><span class="op">)</span></span></code></pre></div>
 </div>
 </div>
 <div class="section level3">
 <h3 id="boxplots">Boxplots<a class="anchor" aria-label="anchor" href="#boxplots"></a>
 </h3>
-<p>Use the long data to create a multi-panel plot with ggplot2.</p>
-<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/plot_boxplot.html">plot_boxplot</a></span><span class="op">(</span><span class="va">scalar_dat_long</span><span class="op">[</span></span>
-<span>  <span class="va">scalar_dat_long</span><span class="op">$</span><span class="va">parameter</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"depletion"</span>, <span class="st">"SSB_MSY"</span><span class="op">)</span> <span class="op">&amp;</span></span>
-<span>  <span class="va">scalar_dat_long</span><span class="op">$</span><span class="va">E</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"E100"</span>, <span class="st">"E101"</span><span class="op">)</span>, <span class="op">]</span>,</span>
-<span>  x <span class="op">=</span> <span class="st">"D"</span>, y <span class="op">=</span> <span class="st">"RE"</span>, re <span class="op">=</span> <span class="cn">FALSE</span>,</span>
-<span>  vert <span class="op">=</span> <span class="st">"E"</span>, horiz <span class="op">=</span> <span class="st">"parameter"</span>, print <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<p>Use the long data to create a multi-panel plot with {ggplot2}.</p>
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/plot_boxplot.html">plot_boxplot</a></span><span class="op">(</span></span>
+<span>  <span class="va">scalar_dat_long</span><span class="op">[</span></span>
+<span>    <span class="va">scalar_dat_long</span><span class="op">$</span><span class="va">parameter</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"depletion"</span>, <span class="st">"SSB_MSY"</span><span class="op">)</span> <span class="op">&amp;</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">grepl</a></span><span class="op">(</span><span class="st">"E10[0-1]"</span>, <span class="va">scalar_dat_long</span><span class="op">[</span>, <span class="st">"scenario"</span><span class="op">]</span><span class="op">)</span>,</span>
+<span>  <span class="op">]</span>,</span>
+<span>  x <span class="op">=</span> <span class="st">"E"</span>, y <span class="op">=</span> <span class="st">"RE"</span>, re <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  horiz <span class="op">=</span> <span class="st">"parameter"</span>, print <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">p</span><span class="op">)</span></span></code></pre></div>
 <div class="figure">
 <img src="introduction_files/figure-html/relative-error-boxplots-det-1.png" alt="Box plots of the relative error (RE) for deterministic runs. $M$ is fixed at the true value from the OM (E100) or estimated (E101)." width="480"><p class="caption">
@@ -760,7 +760,7 @@ Box plots of the relative error (RE) for deterministic runs. <span class="math i
 (E100) or estimated (E101).
 </p>
 </div>
-<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># see plot_points() for another plotting function</span></span></code></pre></div>
 <p>While plotting the relative error in estimates of spawning biomass,
 one can add color to the time series according to the maximum gradient.
@@ -769,30 +769,26 @@ indicate that model convergence is likely. Larger values (greater than
 1) indicate that model convergence is unlikely. Results of individual
 iterations are jittered around the vertical axis to aid in
 visualization. The following three blocks of code produce Figures~<span class="math inline">\(\ref{fig:plot-sto-ts}\)</span>, <span class="math inline">\(\ref{fig:ssb-ts-plots}\)</span>, and <span class="math inline">\(\ref{fig:relative-error-boxplots-sto}\)</span>.</p>
-<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/plot_lines.html">plot_lines</a></span><span class="op">(</span><span class="va">ts_dat_sto</span>, y <span class="op">=</span> <span class="st">"SpawnBio_re"</span>,</span>
-<span>  vert <span class="op">=</span> <span class="st">"E"</span>, horiz <span class="op">=</span> <span class="st">"D"</span>, print <span class="op">=</span> <span class="cn">FALSE</span>, col <span class="op">=</span> <span class="st">"max_grad"</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/plot_lines.html">plot_lines</a></span><span class="op">(</span><span class="va">ts_dat_sto</span>,</span>
+<span>  y <span class="op">=</span> <span class="st">"SpawnBio_re"</span>,</span>
+<span>  vert <span class="op">=</span> <span class="st">"E"</span>, horiz <span class="op">=</span> <span class="st">"D"</span>, print <span class="op">=</span> <span class="cn">FALSE</span>, col <span class="op">=</span> <span class="st">"max_grad"</span></span>
+<span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">p</span><span class="op">)</span></span></code></pre></div>
 <div class="figure">
 <img src="introduction_files/figure-html/plot-sto-ts-1.png" alt="Time series of relative error in spawning stock biomass." width="672"><p class="caption">
 Time series of relative error in spawning stock biomass.
 </p>
 </div>
-<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/plot_lines.html">plot_lines</a></span><span class="op">(</span><span class="va">ts_dat_sto</span>, y <span class="op">=</span> <span class="st">"SpawnBio_re"</span>,</span>
-<span>  vert <span class="op">=</span> <span class="st">"E"</span>, horiz <span class="op">=</span> <span class="st">"D"</span>, print <span class="op">=</span> <span class="cn">FALSE</span>, col <span class="op">=</span> <span class="st">"max_grad"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">p</span><span class="op">)</span></span></code></pre></div>
-<div class="figure">
-<img src="introduction_files/figure-html/ssb-ts-plots-1.png" alt="Spawning stock biomass time series." width="672"><p class="caption">
-Spawning stock biomass time series.
-</p>
-</div>
 <div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/plot_boxplot.html">plot_boxplot</a></span><span class="op">(</span><span class="va">scalar_dat_long</span><span class="op">[</span></span>
-<span>  <span class="va">scalar_dat_long</span><span class="op">$</span><span class="va">parameter</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"depletion"</span>, <span class="st">"SSB_MSY"</span><span class="op">)</span> <span class="op">&amp;</span></span>
-<span>  <span class="va">scalar_dat_long</span><span class="op">$</span><span class="va">E</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"E0"</span>, <span class="st">"E1"</span><span class="op">)</span>, <span class="op">]</span>,</span>
+<code class="sourceCode R"><span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/plot_boxplot.html">plot_boxplot</a></span><span class="op">(</span></span>
+<span>  <span class="va">scalar_dat_long</span><span class="op">[</span></span>
+<span>    <span class="va">scalar_dat_long</span><span class="op">$</span><span class="va">parameter</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"depletion"</span>, <span class="st">"SSB_MSY"</span><span class="op">)</span> <span class="op">&amp;</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">grepl</a></span><span class="op">(</span><span class="st">"E[0-1]-"</span>, <span class="va">scalar_dat_long</span><span class="op">$</span><span class="va">scenario</span><span class="op">)</span>,</span>
+<span>  <span class="op">]</span>,</span>
 <span>  x <span class="op">=</span> <span class="st">"D"</span>, y <span class="op">=</span> <span class="st">"RE"</span>, re <span class="op">=</span> <span class="cn">FALSE</span>,</span>
-<span>  vert <span class="op">=</span> <span class="st">"E"</span>, horiz <span class="op">=</span> <span class="st">"parameter"</span>, print <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span>  vert <span class="op">=</span> <span class="st">"E"</span>, horiz <span class="op">=</span> <span class="st">"parameter"</span>, print <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">p</span><span class="op">)</span></span></code></pre></div>
 <div class="figure">
 <img src="introduction_files/figure-html/relative-error-boxplots-sto-1.png" alt="Box plots of relative error (RE) for stochastic runs. $M$ is fixed at the true value from the OM (E0) or estimated (E1). The standard deviation on the survey index observation error is 0.4 (D1) or 0.1 (D0), representing an increase in survey sampling effort." width="480"><p class="caption">
@@ -1325,7 +1321,7 @@ trawl-survey samples. Fishery Bulletin <strong>100</strong>(1).
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer>
