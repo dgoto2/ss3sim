@@ -1,9 +1,8 @@
-pandoc: 2.19.2
-pkgdown: 2.0.7
+pandoc: 3.1.11
+pkgdown: 2.1.0
 pkgdown_sha: ~
 articles:
   introduction: introduction.html
   making-models: making-models.html
   modifying-models: modifying-models.html
-last_built: 2023-07-13T05:35Z
-
+last_built: 2024-07-29T07:47Z
